@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Image</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3); /* Soft gradient background */
+    }
+
+    .upload-box {
+      background-color: white;
+      padding: 40px 60px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .upload-box h2 {
+      margin-bottom: 20px;
+      color: #003366;
+    }
+
+    input[type="file"] {
+      margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+      background-color: #0056d2;
+      color: white;
+      border: none;
+      padding: 10px 30px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0041a8;
+    }
+  </style>
+</head>
+<body>
+  <div class="upload-box">
+    <h2>Upload Your Image</h2>
+    <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+      <p>Choose a file:</p>
+      <input type="file" name="uploadedFile" required />
+      <br>
+      <input type="submit" value="Upload" />
+    </form>
+  </div>
+</body>
+</html>

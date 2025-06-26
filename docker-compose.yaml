@@ -1,0 +1,28 @@
+name: "Node-App"
+services:
+  api:                    # name of the service we gave (at this case we have one service , it is possible to have many)
+    container_name: "api-container"
+    build:
+      context: "./Node App"  # The location of the file in our local machine. We are telling to look for image in the path we provided
+      dockerfile: Dockerfile # The name of Dockerfile we have already in our system (local machine)
+    image: node-api  # We give here name for the image going to be created.
+    ports:
+      - "5000:5000" # The first 5000 is for local host and the next for container
+    volumes:
+      - my-imgs:/app/uploads
+    develop:
+      watch:
+        - path: "./Node App" # This is path in our local machine
+          action: sync # This is the action we want to achieve which is to sync
+          target: /app # This is path in our container. 
+          ignore:
+            - node_modules  # container have node modules so we ignore it here since we don't need that
+                  # it sync everything except node_modules
+
+volumes:
+  my-imgs: # we have to mention the volume we want to use
+
+# This the above step makes the whole process automated. 
+
+
+  
